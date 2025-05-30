@@ -42,4 +42,5 @@ export default defineConfig({
       usePolling: true,
     },
   },
+  base: '/Reposcope/',
 }) 
