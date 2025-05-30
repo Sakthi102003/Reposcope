@@ -1,8 +1,2 @@
-import { Inter } from 'next/font/google'
-
-export const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
-  fallback: ['system-ui', 'Arial', 'sans-serif'],
-}) 
+// Remove Next.js font import and use system fonts instead
+export const fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' 

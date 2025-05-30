@@ -29,7 +29,24 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       external: ['@octokit/rest'],
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react'
+            }
+            if (id.includes('@radix-ui') || id.includes('class-variance-authority') || id.includes('clsx') || id.includes('tailwind-merge')) {
+              return 'vendor-ui'
+            }
+            if (id.includes('recharts')) {
+              return 'vendor-charts'
+            }
+            return 'vendor-others'
+          }
+        }
+      }
     },
+    chunkSizeWarningLimit: 1000
   },
   css: {
     postcss: './postcss.config.cjs',
